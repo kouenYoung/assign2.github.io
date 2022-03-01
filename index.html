@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title> Registration/Log-in Page </title>
+      <link rel="stylesheet" href="./style.css">
+      <link rel="icon" href="assets/avatar_small.ico">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  </head>
+
+  <body>
+  <div class="container">
+    <div class="welcome">
+      <div class="pinkbox">
+        <!-- REGISTRATION -->
+        <div class="signup nodisplay">
+          <h1>Register</h1>
+          <form autocomplete="off">
+            <input type="text" placeholder="Username">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Confirm Password">
+            <button class="button submit">Create Account</button>
+          </form>
+        </div>
+
+        <!-- LOG-IN -->
+        <div class="signin">
+          <h1>Sign In</h1>
+          <form class="more-padding" autocomplete="off">
+            <input type="text" placeholder="Username">
+            <input type="password" placeholder="Password">
+            <div class="checkbox">
+              <input type="checkbox" id="remember" /><label for="remember">Remember Me</label>
+            </div>
+            <button class="buttom submit">Login</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="leftbox">
+        <h2 class="title"><span>WELCOME </span>TO<br>PIXIRATER!</h2>
+        <p class="desc">The <span>best</span> music rater on campus!</p>
+        <img class="left-logo" src="assets/avatar_big_hollow.png" />
+        <p class="account">Have an account?</p>
+        <button class="button" id="signin">Login</button>
+      </div>
+
+      <div class="rightbox">
+        <h2 class="title"><span>WELCOME</span> BACK!<br>ʕ•́ᴥ•̀ʔっ♡</h2>
+        <p class="desc">Welcome back <span>user!</span></p>
+        <img class="right-logo" src="assets/avatar_big_hollow.png" />
+        <p class="account">Don't have an account?</p>
+        <button class="button" id="signup">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script><script src="./script.js"></script>
+  </body>
+</html>
