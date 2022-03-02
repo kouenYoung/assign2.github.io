@@ -14,7 +14,7 @@
 <form method="POST" action="">
 Username: <input type="text" name="username1" /><br>
 Password: <input type="text" name="password" /><br>
-<input type="submit" name="submit" value="Register"/><br>
+<input type="submit" name="register" value="Register"/><br>
   </form>
 
 
@@ -32,7 +32,9 @@ Password: <input type="text" name="password" /><br>
         }
         echo "Connected successfully <br><br>";
 
-        if(isset($_REQUEST["submit"])){
+        $newArray = array();
+
+        if(isset($_REQUEST["register"])){
             $out_value = "";
             $username = $_REQUEST['username1'];
             $password = $_REQUEST['password'];
@@ -67,14 +69,13 @@ Password: <input type="text" name="password" /><br>
         
 
 
-        if(isset($_REQUEST["submit"])){
+        if(isset($_REQUEST["retrieve"])){
             $out_value = "";
             $username = $_REQUEST['username2'];
 
             if(!empty($username)){
                 $sql_query = "SELECT * FROM ratings WHERE username = ('$username')";
                 $result = mysqli_query($conn, $sql_query);
-				$newArray = array();
                while($row = mysqli_fetch_assoc($result)){
                 $out_song = $row['song'];
                 $out_rating = $row['rating'];
@@ -91,6 +92,7 @@ Password: <input type="text" name="password" /><br>
             }
         }
 
+
         $conn->close();
         ?>
 
@@ -98,7 +100,7 @@ Password: <input type="text" name="password" /><br>
 <hd3> Retrieve Songs by Username </hd3><br>
 Username: <input type="text" name="username2" /><br>
 
-  <input type="submit" name="submit" value="Retrieve"/>
+  <input type="submit" name="retrieve" value="Retrieve"/>
   </form>
   
   <p><?php 
