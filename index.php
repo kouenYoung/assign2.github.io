@@ -39,33 +39,40 @@ Password: <input type="text" name="password" /><br>
             $username = $_REQUEST['username1'];
             $password = $_REQUEST['password'];
             if(!empty($username) && !empty($password)){
-                $sql_query = "SELECT * FROM users WHERE username = ('$username')";
+               $sql_query = "SELECT * FROM users WHERE username = ('$username')";
                $result = mysqli_query($conn, $sql_query);
                $row = mysqli_fetch_assoc($result);
-
+               
 
                if($row != 0){
-                   echo "You already have an account<br><br>";
-               }
-               else {
-                $sql_query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
-                mysqli_query($conn, $sql_query);
+                   $out_pass = $row['password'];
+                   $sql_query = "SELECT * FROM users WHERE password = ('$password')";
+                   $result = mysqli_query($conn, $sql_query);
+                   $row = mysqli_fetch_assoc($result);
+                   
+                   if($out_pass == $password){
+                       echo "You already have an account<br><br>";
+                    }
+
+                    else{
+                        echo "Please enter the correct Username or Password";
+                    }
+                    
+                }
                
-                echo "User succesfully added!<br><br>";
+                else{
+                    $sql_query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+                    mysqli_query($conn, $sql_query);
+                    echo "User succesfully added!<br><br>";
+                }
 
-               }
-        
-
-            }
-
-            else {
-                echo "Please enter Username and Password";
-            }
-
-
-
-
+        }    
+            
+        else {
+            echo "Please enter Username and Password";
         }
+
+    }
         
 
 
