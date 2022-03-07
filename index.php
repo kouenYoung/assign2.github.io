@@ -13,7 +13,7 @@
 
 
 <center><form method="POST" action="">
-<h4>Creat an Account </h4>
+<h4>Create an Account </h4>
 Username: <input type="text" name="username1" /><br>
 Password: <input type="text" name="password" /><br>
 <input type="submit" name="register" value="Register"/><br><br>
