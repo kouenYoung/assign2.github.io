@@ -3,18 +3,20 @@
 <html lang="en">
     <head>
     <meta http-equiv="Content-Type" content="application/x-www-form-urlencoded"/>
-        <title>First PHP and SQL Example</title>
+        <title>Hw2</title>
     </head>
 
     <body>
-        <p>This is our first PHP and SQL example of a dynamically served 
-            web page!</p>
+        <h2><center>Create an account! &
+                    View your ratings!   
+</center></h2>
 
 
-<form method="POST" action="">
+<center><form method="POST" action="">
+<h4>Creat an Account </h4>
 Username: <input type="text" name="username1" /><br>
 Password: <input type="text" name="password" /><br>
-<input type="submit" name="register" value="Register"/><br>
+<input type="submit" name="register" value="Register"/><br><br>
   </form>
 
 
@@ -26,11 +28,6 @@ Password: <input type="text" name="password" /><br>
         $dbname = "music-db";
 
         $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-        echo "Connected successfully <br><br>";
 
         $newArray = array();
 
@@ -55,7 +52,7 @@ Password: <input type="text" name="password" /><br>
                     }
 
                     else{
-                        echo "Please enter the correct Username or Password";
+                        echo "Please enter the correct Username or Password <br><br>";
                     }
                     
                 }
@@ -73,9 +70,17 @@ Password: <input type="text" name="password" /><br>
         }
 
     }
+    ?>
+
+<form method="POST" action="">
+<h4> Retrieve Song Ratings by Username </h4>
+Username: <input type="text" name="username2" /><br>
+
+  <input type="submit" name="retrieve" value="Retrieve"/><br><br>
+  </form>
         
 
-
+<?php
         if(isset($_REQUEST["retrieve"])){
             $out_value = "";
             $username = $_REQUEST['username2'];
@@ -83,6 +88,7 @@ Password: <input type="text" name="password" /><br>
             if(!empty($username)){
                 $sql_query = "SELECT * FROM ratings WHERE username = ('$username')";
                 $result = mysqli_query($conn, $sql_query);
+
                while($row = mysqli_fetch_assoc($result)){
                 $out_song = $row['song'];
                 $out_rating = $row['rating'];
@@ -91,24 +97,21 @@ Password: <input type="text" name="password" /><br>
 				$newArray[] = $out_rating ;
 
 			   }
-
+               if(empty($newArray)){
+                   echo "No ratings available<br><br>";
+               }
 
             }
+
+
             else {
-                $out_value = "No grade available!";
+                echo "Please enter a Username<br><br>";
             }
         }
 
 
         $conn->close();
         ?>
-
-<form method="POST" action="">
-<hd3> Retrieve Songs by Username </hd3><br>
-Username: <input type="text" name="username2" /><br>
-
-  <input type="submit" name="retrieve" value="Retrieve"/>
-  </form>
   
   <p><?php 
 
