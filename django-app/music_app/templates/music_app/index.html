@@ -1,7 +1,14 @@
+<html>
+    <body>
+        <h1> Hello </h1>
+        <div class = "users">
+            {% for user in users %}
+            <div class = "users">
+                <h2><a href = "#">{{users.username}}</a></h2>
+            </div>
 
-{% block content %}
-<form>
-{{ form.as_p }}
-<imput type='submit' value='Save' />
-</form>
-{% endblock %}
+            {% endfor %}
+        </div>
+    </body>
+    
+</html>
