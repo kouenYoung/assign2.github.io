@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <form method = "POST"> {% csrf_token %}
+            {{ form.as_p }}
+            <input type ="submit" value = "Save" />
+    
+        </form>
+        <div class = "songs">
+            {% for ratings in ratings_list %}
+            <div class = "songs">
+                <h2> {{ ratings.song }}</h2>
+                <h2> {{ ratings.rating }}</h2>
+
+            </div>
+
+            {% endfor %}
+        </div>
+    </body>
+    
+</html>
+
+
+    

@@ -14,9 +14,9 @@ class Artists(models.Model):
 
 class Ratings(models.Model):
     id = models.IntegerField(primary_key=True)
-    username = models.ForeignKey(Users, to_field="username", on_delete=models.CASCADE)
+    username = models.ForeignKey(Users, on_delete=models.CASCADE)
     song = models.CharField(max_length=200)
     rating = models.IntegerField()
 
     def __str__(self):
-        return self.username
+        return self.id
