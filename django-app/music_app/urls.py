@@ -4,6 +4,8 @@ from django.contrib import admin
 
 from music_app.views import register, songs
 
+from django.urls import reverse_lazy
+
 
 urlpatterns = [
     path('', views.index, name='index'),

@@ -2,11 +2,14 @@
 <link rel="stylesheet" type = "text/css" href="{% static 'music_app/styles.css' %}">
 <html lang = "en">
     <body>
+    <h1> Register</h1>
+    <div id="register_user">
     <form method = "POST"> {% csrf_token %}
         {{ form.as_p }}
-        <input type ="submit" value = "Save" />
+        <input type ="submit" value = "Create Account" />
 
     </form>
+    </div>
 
 </body>
 </html>

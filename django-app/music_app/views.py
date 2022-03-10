@@ -5,7 +5,7 @@ from django.template import loader
 from .forms import UsersForm, SongsForm
 
 from .models import Users, Ratings
-
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 def index(request):
@@ -18,6 +18,7 @@ def register(request):
     if form.is_valid():
         form.save()
         form = UsersForm()
+        return HttpResponseRedirect('/music_app/songs/')
 
     context = {
         'form': form
