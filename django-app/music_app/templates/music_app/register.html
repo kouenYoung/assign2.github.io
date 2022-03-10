@@ -10,6 +10,22 @@
                     <input type ="submit" value = "Create Account" class="register_button"/>
 
                 </form>
+
+                <form method = "POST"> {% csrf_token %}
+                    {{ form2.as_p }}
+                    <input type ="submit" value = "Save" />
+            
+                </form>
+                <div class = "songs">
+                    {% for ratings in ratings_list %}
+                    <div class = "songs">
+                        <h2> {{ ratings.song }}</h2>
+                        <h2> {{ ratings.rating }}</h2>
+        
+                    </div>
+        
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
