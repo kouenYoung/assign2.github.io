@@ -28,6 +28,8 @@ def songs(request):
     form = SongsForm(request.POST or None)
     if form.is_valid():
         ratings = Ratings.objects.filter(username = form.cleaned_data["username"])
+    else:
+        ratings = None
 
     context = {
         'form': form,
