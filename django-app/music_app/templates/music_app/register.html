@@ -1,74 +1,95 @@
+<!--
+  COMP 333 Software Engineering (Dr. Sebastian Zimmeck) - Assgiment 2
+  Authors: Luke Morrill, Noah Hartzfeld, Henry Yang
+-->
+
 {% load static %}
-<link rel="stylesheet" type = "text/css" href="{% static 'music_app/styles.css' %}">
+<!DOCTYPE HTML>
 <html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> Registration/Log-in </title>
+        <link rel="stylesheet" type = "text/css" href="{% static 'music_app/styles.css' %}">
+        <link rel="icon" href="{% static 'music_app/avatar_small.ico' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    </head>
+
     <body>
-        <div class="register_box">
-            <h1 id="reg_title"> REGISTER</h1>
+    <div class="container">
+    <h1>Welcome!<br>ʕ•́ᴥ•̀ʔっ♡</h1>
+
+    <div class="box">
+
+        <div class="box-child1">
+            <h2 class="title">Create an Account</h2>
             <div id="register_user">
-                <form method = "POST"> {% csrf_token %}
+                <form method = "POST" id="form_reg">
+                    {% csrf_token %}
                     {{ form.as_p }}
-                    <input type ="submit" value = "Create Account" class="register_button" name="register"/>
-
+                    <button type="submit" name="register" class="button submit" form="form_reg">Register</button>
                 </form>
-
-                <form method = "POST"> {% csrf_token %}
-                    {{ form2.as_p }}
-                    <input type ="submit" value = "Get Ratings" name="get_songs"/>
-            
-                </form>
-                <div class = "songs">
-                    {% for ratings in ratings_list %}
-                    <div class = "songs">
-                        <h2> {{ ratings.song }}</h2>
-                        <h2> {{ ratings.rating }}</h2>
-        
-                    </div>
-        
-                    {% endfor %}
-                </div>
             </div>
-
-
-            <div id="song_artist">
-                <form method = "POST">  {% csrf_token %}
-                    {{ artist_form.as_p }}
-                    <input type="submit" value = "Get Artist" name="song_to_artist"/>
-                    
-                </form>
-                <div class = 'songs_artists'>
-                    {% for artist in artists %}
-                    <div>
-                        <h2> {{ artist.song }}</h2>
-                        <h2> {{ artist.artist }}</h2>
-                    </div>
-                    {% endfor %}
-
-                </div>
-            </div>
-
-            <div id="songinfo">
-                <form method = "POST">  {% csrf_token %}
-                    {{ song_form.as_p }}
-                    <input type="submit" value = "Get Song Info" name="song_info"/>
-                    
-                </form>
-                <div class>
-                    {% for song in song_info %}
-                    <div>
-                        <h2> {{ song.song }}</h2>
-                        <h2> {{ song.album }}</h2>
-                        <h2> {{ song.year }}</h2>
-                        <h2> {{ song.genre }}</h2>
-                    </div>
-                    {% endfor %}
-
-                </div>
-            </div>
-
         </div>
 
-</body>
+        <div class="box-child2">
+            <div class="box-row">
+
+            <div class="box-cell box1">
+                <form method = "POST" id="form_songs">
+                    {% csrf_token %}
+                    {{ form2.as_p }}
+                    <button class="small-button" name="get_songs" class="button submit" form="form_songs">Get Ratings</button>
+                </form>
+                <div class="sql-query">
+                    {% for ratings in ratings_list %}
+                    <p>
+                        {{ ratings.song }}
+                        ({{ ratings.rating }})
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="box-cell box2" id="song_artist">
+                <form method = "POST" id="form_song_artist">
+                    {% csrf_token %}
+                    {{ artist_form.as_p }}
+                    <button class="small-button" name="song_to_artist" class="button submit" form="form_song_artist">Get Artist</button>
+                </form>
+                <div class="sql-query">
+                    {% for artist in artists %}
+                    <p>
+                        {{ artist.song }}
+                        <br>by<br>
+                        {{ artist.artist }}
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="box-cell box3" id="songinfo">
+                <form method = "POST" id="form_song_info">
+                    {% csrf_token %}
+                    {{ song_form.as_p }}
+                    <button class="small-button" name="song_info" class="button submit" form="form_song_info">Get Song Info</button>
+                </form>
+                <div class="sql-query">
+                    {% for song in song_info %}
+                    <p>
+                        {{ song.song }},<br>
+                        {{ song.album }},<br>
+                        {{ song.year }},<br>
+                        {{ song.genre }},<br>
+                    </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      </div>
+      </body>
 </html>
-
-
-    
