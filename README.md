@@ -6,7 +6,7 @@ This project was created and developed as part of the COMP 333 Software Engineer
 
 ## Collaborators
 
-This project was made possible by the great collaboration of the following amazing people: Luke Morrill, Noah Hartzfeld, Henry Yang
+This project was made possible by the great collaboration of the following young talents: Luke Morrill, Noah Hartzfeld, Henry Yang
 
 ## Contributing
 Pull requests are welcome at anytime. For major changes, please open an issue first to discuss what you would like to change.
