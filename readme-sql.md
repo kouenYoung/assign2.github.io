@@ -50,7 +50,7 @@ INSERT INTO artists VALUES("These Walls", "Kendrick Lamar");
 In ratings table went to relational view. In constraint properties,
 name - delete_username
 ON DELETE - CASCADE
-ON UPDATE - do not touch
+ON UPDATE - RESTRICT
 Column - username
 Database - music-db
 Table - users
