@@ -15,10 +15,6 @@ python3 manage.py runserver
 
 Go to the admin page at: http://127.0.0.1:8000/admin/ 
 
-Use the following credentials to login in:
-- Username: admin
-- Password: Djangoadmin0
-
 # For Adding Users:
 1. Go the 'Userss' section under 'MUSIC APP'
 2. To add a new user, click 'ADD USERS'
