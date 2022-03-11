@@ -13,7 +13,7 @@
 
                 <form method = "POST"> {% csrf_token %}
                     {{ form2.as_p }}
-                    <input type ="submit" value = "Save" name="get_songs"/>
+                    <input type ="submit" value = "Get Ratings" name="get_songs"/>
             
                 </form>
                 <div class = "songs">
@@ -27,6 +27,44 @@
                     {% endfor %}
                 </div>
             </div>
+
+
+            <div id="song_artist">
+                <form method = "POST">  {% csrf_token %}
+                    {{ artist_form.as_p }}
+                    <input type="submit" value = "Get Artist" name="song_to_artist"/>
+                    
+                </form>
+                <div class = 'songs_artists'>
+                    {% for artist in artists %}
+                    <div>
+                        <h2> {{ artist.song }}</h2>
+                        <h2> {{ artist.artist }}</h2>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <div id="songinfo">
+                <form method = "POST">  {% csrf_token %}
+                    {{ song_form.as_p }}
+                    <input type="submit" value = "Get Song Info" name="song_info"/>
+                    
+                </form>
+                <div class>
+                    {% for song in song_info %}
+                    <div>
+                        <h2> {{ song.song }}</h2>
+                        <h2> {{ song.album }}</h2>
+                        <h2> {{ song.year }}</h2>
+                        <h2> {{ song.genre }}</h2>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
         </div>
 
 </body>
