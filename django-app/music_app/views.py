@@ -14,34 +14,29 @@ def index(request):
 
 
 def register(request):
-    form = UsersForm(request.POST or None)
-    form2 = SongsForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        form = UsersForm()
-        #return HttpResponseRedirect('/music_app/songs/')
-    if form2.is_valid():
-        ratings = Ratings.objects.filter(username = form2.cleaned_data["username"])
-        form2 = SongsForm()
-    else:
-        ratings = None
+    
+    users = UsersForm()
+    rating_form = SongsForm()
+    ratings = None
+    if request.method == 'POST':
+        if 'register' in request.POST:
+            users = UsersForm(request.POST or None)
+            if users.is_valid():
+                users.save()
+                users = UsersForm()
+
+        if 'get_songs' in request.POST:
+            rating_form = SongsForm(request.POST or None)
+            if rating_form.is_valid():
+                ratings = Ratings.objects.filter(username = rating_form.cleaned_data["username"])
+            
+    
     context = {
-        'form': form,
-        'form2': form2,
-        'ratings_list' : ratings
+        'form' : users,
+        "form2": rating_form,
+        "ratings_list" : ratings
     }
     return render(request, 'music_app/register.html', context)
 
 def songs(request):
-    return HttpResponse('<h1>Testing stuff<h1>')
-    """form = SongsForm(request.POST or None)
-    if form.is_valid():
-        ratings = Ratings.objects.filter(username = form.cleaned_data["username"])
-    else:
-        ratings = None
-
-    context = {
-        'form': form,
-        'ratings_list' : ratings
-    }
-    return render(request, 'music_app/songs.html', context)"""
+    return HttpResponse('<h1>Leaving here for now<h1>')

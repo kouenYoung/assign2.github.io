@@ -20,7 +20,7 @@ class Ratings(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
 
     def __str__(self):
-        return str(self.id)
+        return self.song
 
 
 class SongInfo(models.Model):

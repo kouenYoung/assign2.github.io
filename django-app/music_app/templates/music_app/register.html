@@ -7,13 +7,13 @@
             <div id="register_user">
                 <form method = "POST"> {% csrf_token %}
                     {{ form.as_p }}
-                    <input type ="submit" value = "Create Account" class="register_button"/>
+                    <input type ="submit" value = "Create Account" class="register_button" name="register"/>
 
                 </form>
 
                 <form method = "POST"> {% csrf_token %}
                     {{ form2.as_p }}
-                    <input type ="submit" value = "Save" />
+                    <input type ="submit" value = "Save" name="get_songs"/>
             
                 </form>
                 <div class = "songs">
