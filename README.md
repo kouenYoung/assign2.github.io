@@ -1,4 +1,6 @@
-# Purpose
+# A Music Rating App
+
+## Purpose
 
 This project was created and developed as part of the COMP 333 Software Engineering class at Wesleyan University.
 
