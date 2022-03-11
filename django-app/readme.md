@@ -10,10 +10,17 @@ source venv/bin/activate
 python3 manage.py runserver
 ```
 
+## Using the app
+
+Go to the app page at: http://127.0.0.1:8000/music_app/ 
 
 ## Adding to Database
 
-Go to the admin page at: http://127.0.0.1:8000/admin/ 
+Go to the admin page at: http://127.0.0.1:8000/admin/
+
+Use the following credentials to login as an admin:
+- Username: admin
+- Password: Djangoadmin0
 
 # For Adding Users:
 1. Go the 'Userss' section under 'MUSIC APP'
