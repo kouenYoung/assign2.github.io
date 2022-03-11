@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Users, Ratings, Artists, SongInfo
+from .models import Users, Ratings, Artists, SongInfo, Song, SongDetails
 
 class UsersForm(forms.ModelForm):
     class Meta:
@@ -19,14 +19,14 @@ class SongsForm(forms.ModelForm):
 
 class ArtistsForm(forms.ModelForm):
     class Meta:
-        model = Artists
+        model = Song
         fields = [
             'song',
         ]
 
 class SongInfoForm(forms.ModelForm):
     class Meta:
-        model = SongInfo
+        model = SongDetails
         fields = [
             'song',
         ]

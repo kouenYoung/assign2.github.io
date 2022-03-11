@@ -5,7 +5,7 @@ from django.template import loader
 
 from .forms import SongInfoForm, UsersForm, SongsForm, ArtistsForm, SongInfoForm
 
-from .models import Users, Ratings, Artists, SongInfo
+from .models import Users, Ratings, Artists, SongInfo, Song, SongDetails
 from django.http import HttpResponseRedirect,HttpResponse
 # Create your views here.
 
@@ -38,12 +38,12 @@ def register(request):
         if 'song_to_artist' in request.POST:
             artists_form = ArtistsForm(request.POST or None)
             if artists_form.is_valid():
-                artist = Artists.objects.filter(song = artists_form.cleaned_data['song'])
+                artist = Song.objects.filter(song = (artists_form.cleaned_data['song']))
 
         if 'song_info' in request.POST:
             song_info_form = SongInfoForm(request.POST or None)
             if song_info_form.is_valid():
-                song_info = SongInfo.objects.filter(song = song_info_form.cleaned_data['song'])
+                song_info = SongDetails.objects.filter(song = song_info_form.cleaned_data['song'])
 
             
     context = {
