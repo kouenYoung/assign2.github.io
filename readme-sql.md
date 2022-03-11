@@ -40,6 +40,7 @@ Creating artist table:
 ```sql
 CREATE TABLE artists (song varchar(255) PRIMARY KEY, artist varchar(255));
 
+
 INSERT INTO artists VALUES("Freeway", "Aimee Mann");
 INSERT INTO artists VALUES("Days of Wine and Roses", "Bill Evans");
 INSERT INTO artists VALUES("These Walls", "Kendrick Lamar");
@@ -47,12 +48,18 @@ INSERT INTO artists VALUES("These Walls", "Kendrick Lamar");
 
 
 ```sql
-In ratings table went to relational view. In constraint properties,
-name - delete_username
-ON DELETE - CASCADE
-ON UPDATE - RESTRICT
-Column - username
-Database - music-db
-Table - users
-Column - username
+In ratings table, go to Structure > Relation view.
+
+In "Constraint properties" column, change inputs to the following:
+Constraint name -> delete_username
+ON DELETE -> CASCADE
+ON UPDATE -> RESTRICT
+
+In "Column" column, change inputs to the following:
+Column -> username
+
+In "Foreign key constraint (INNODB)" column, change inputs to the following:
+Database -> music-db
+Table -> users
+Column -> username
 ```
