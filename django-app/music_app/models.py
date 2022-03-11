@@ -10,9 +10,7 @@ class Users(models.Model):
     def __str__(self):
         return self.username
 
-class Artists(models.Model):
-    song = models.CharField(max_length=200, primary_key=True)
-    artist = models.CharField(max_length=200)
+
 
 class Ratings(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -23,12 +21,6 @@ class Ratings(models.Model):
     def __str__(self):
         return self.song
 
-
-class SongInfo(models.Model):
-    song = models.CharField(max_length=200, primary_key=True)
-    album = models.CharField(max_length=200)
-    year = models.IntegerField(validators=[MinValueValidator(1900), MaxValueValidator(2022)])
-    genre = models.CharField(max_length=200)
 
 
 class Song(models.Model):

@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Users, Ratings, Artists, SongInfo, Song, SongDetails
+from .models import Users, Ratings,  Song, SongDetails
 
 class UsersForm(forms.ModelForm):
     class Meta:

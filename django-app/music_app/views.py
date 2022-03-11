@@ -5,17 +5,11 @@ from django.template import loader
 
 from .forms import SongInfoForm, UsersForm, SongsForm, ArtistsForm, SongInfoForm
 
-from .models import Users, Ratings, Artists, SongInfo, Song, SongDetails
+from .models import Users, Ratings, Song, SongDetails
 from django.http import HttpResponseRedirect,HttpResponse
 # Create your views here.
 
-def index(request):
-    users = Users.objects.all()
-    return render(request, 'music_app/index.html', {'users': users})
-
-
 def register(request):
-    
     users = UsersForm()
     rating_form = SongsForm()
     song_info_form = SongInfoForm()
@@ -56,6 +50,3 @@ def register(request):
         'song_info' : song_info
     }
     return render(request, 'music_app/register.html', context)
-
-def songs(request):
-    return HttpResponse('<h1>Leaving here for now<h1>')
