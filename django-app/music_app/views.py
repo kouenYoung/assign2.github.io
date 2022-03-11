@@ -1,12 +1,9 @@
 from nntplib import ArticleInfo
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
 
 from .forms import SongInfoForm, UsersForm, SongsForm, ArtistsForm, SongInfoForm
 
 from .models import Users, Ratings, Song, SongDetails
-from django.http import HttpResponseRedirect,HttpResponse
 # Create your views here.
 
 def register(request):
